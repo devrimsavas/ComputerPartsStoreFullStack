@@ -3,7 +3,7 @@
 
 This is a fullstack web application for browsing and managing computer parts, built with **Next.js** (frontend) and **Node.js** (backend).
 
-## 🚀 Getting Started
+##  Getting Started
 
 To start both the frontend and backend servers, run the following command in the root folder:
 
