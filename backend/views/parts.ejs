@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+  <link href="../../stylesheets/navbar.css" rel="stylesheet">
+  <%- include('./partials/head.ejs') %>
+</head>
+
+<body class="position-relative" data-bs-spy="scroll">
+  <%- include('./partials/navbar.ejs') %>
+    <section class="container">
+      <h1 class="heading">
+        <%= heading %>
+      </h1>
+
+      <div class="float-end mb-3">
+        <!-- Add button logic -->
+        <% if (session && session.user) { %>
+          <button class="btn btn-primary shadow-lg" onclick="window.location.href='/part'">
+            <i class="bi bi-plus-circle"></i> Add item
+          </button>
+          <% } else { %>
+            <button class="btn btn-secondary shadow-lg" disabled title="Sign in to add new items">
+              <i class="bi bi-plus-circle"></i> Add item (Sign in required)
+            </button>
+            <% } %>
+
+              <!-- Refresh button is always available -->
+              <button class="btn btn-warning shadow-lg" onclick="window.location.href='/parts/refresh'">
+                <i class="bi bi-arrow-clockwise"></i> Refresh
+              </button>
+      </div>
+
+      <table class="table table-striped table-bordered shadow-lg" id="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Product</th>
+            <th scope="col">Description</th>
+            <th scope="col">In stock</th>
+            <th scope="col">Price</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- !IMPORTANT - Remove this code when the application is published -->
+          <% parts.forEach((part)=> { %>
+            <tr>
+              <td>
+                <%= part.id %>
+              </td>
+              <td><img src=<%=part.image %> width="20%"> </td>
+              <td>
+                <%= part.product %>
+              </td>
+              <td>
+                <%= part.description %>
+              </td>
+              <!--update if quantity is 0 -->
+
+              <td>
+                <%= part.qty_instock===0 ? "No Stock" : part.qty_instock %>
+              </td>
+              <td>
+                <%= part.price %>
+              </td>
+              <!--i prefer to use product id to grab for edit-->
+              <!--edit buttonvisible for registered users-->
+              <td>
+                <% if (session && session.user) { %>
+                  <button class="btn btn-danger" onclick="editItem(<%= part.id %>)">Edit</button>
+                  <% } else { %>
+                    <button class="btn btn-secondary" disabled title="Register or sign in to edit">
+                      Edit (Sign in required)
+                    </button>
+                    <% } %>
+              </td>
+
+
+            </tr>
+            <% }); %>
+
+              <!-- <tr>
+            <th scope="row">
+            </th>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+
+    </section>
+    <%- include('./partials/scripts.ejs') %>
+      <script src="/js/parts.js"></script>
+</body>
+
+</html>

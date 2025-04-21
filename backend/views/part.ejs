@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link href="../stylesheets/navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <%- include('./partials/head.ejs') %>
+</head>
+
+<body class="position-relative" data-bs-spy="scroll">
+  <%- include('./partials/navbar.ejs') %>
+    <section class="container">
+      <h1 class="text-center heading">
+        <%= heading %>
+      </h1>
+      <div class="card shadow-lg border-warning">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="product">Product</label>
+              <input type="text" class="form-control" id="product" placeholder="Product">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="Product description">
+            </div>
+            <div class="form-group">
+              <label for="image">Image</label>
+              <input type="text" class="form-control" id="image" aria-describedby="imageHelp"
+                placeholder="URL image of the item">
+              <small id="imageHelp" class="form-text text-muted">Any working url image can be used for this value, no
+                image need to be uploaded otherwise stock image will be loaded</small>
+            </div>
+            <div class="form-group">
+              <label for="type">Type</label>
+              <input type="text" class="form-control" id="type" placeholder="Product type">
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input type="text" class="form-control" id="quantity" placeholder="1">
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="text" class="form-control" id="price" placeholder="NOK 0">
+            </div>
+            <!--convert submit to onclick -->
+            <div class="text-center"><button type="button" class="btn btn-primary" onclick="addItem()"><i
+                  class="bi bi-save"></i> Add Item</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

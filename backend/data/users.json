@@ -1,0 +1,27 @@
+[
+  {
+    "username": "Admin",
+    "password": "Admin1",
+    "role": "admin"
+  },
+  {
+    "username": "Devrim",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "ahmet",
+    "password": "ahmet",
+    "role": "user"
+  },
+  {
+    "username": "selim",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "mehmet",
+    "password": "mehmet",
+    "role": "user"
+  }
+]

@@ -1,0 +1,15 @@
+
+change file name to 
+.env.local 
+
+#use direct api 
+#BASE_API_URL=http://backend.restapi.co.za
+
+
+
+#use program API
+BASE_API_URL=http://localhost:3001
+
+
+change file name to 
+.env.local 
